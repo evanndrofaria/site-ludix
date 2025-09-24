@@ -1,0 +1,281 @@
+/* SUBSTITUA A LINHA @import ANTIGA POR ESTA */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto:wght@400;700&family=Source+Code+Pro:wght@700&display=swap');
+
+/* Passo 2: Definir nossas Variáveis de Cor (Paleta) */
+:root {
+    --bg-color: #0A192F; /* Azul-marinho profundo */
+    --accent-color: #00FFFF; /* Ciano Elétrico */
+    --text-color: #E6F1FF; /* Branco com tom de azul */
+    --support-color: #8892B0; /* Cinza médio */
+}
+
+/* Passo 3: Reset Básico e Estilos Globais */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Roboto', sans-serif; /* Fonte padrão para textos */
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+    font-family: 'Orbitron', sans-serif; /* Fonte especial para títulos */
+    color: var(--accent-color);
+}
+
+/* Estilos do Container Principal */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto; /* Truque para centralizar o container */
+}
+
+
+/* Estilos do Cabeçalho */
+.site-header {
+    padding: 20px 0;
+    border-bottom: 1px solid #2a3b52; /* Linha sutil para separar */
+}
+
+.site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 150px; /* Define uma altura fixa para o logo */
+    width: auto;
+}
+
+.main-nav ul {
+    list-style: none; /* Remove os pontinhos da lista */
+    display: flex;
+    gap: 30px; /* Espaçamento entre os itens do menu */
+}
+
+.main-nav a {
+    color: var(--text-color);
+    text-decoration: none; /* Remove o sublinhado dos links */
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 14px;
+    transition: color 0.3s ease; /* Efeito suave na mudança de cor */
+}
+
+.main-nav a:hover {
+    color: var(--accent-color); /* Muda para a cor de destaque ao passar o mouse */
+}
+
+/* Estilos da Seção Hero */
+.hero {
+    min-height: 85vh; /* A seção terá no mínimo 85% da altura da tela */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero h1 {
+    font-size: 4rem; /* Unidade de medida relativa, ótima para responsividade */
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+/* Estilos do Botão de Ação (Call to Action) */
+.cta-button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--bg-color); /* Texto escuro para contrastar com o fundo ciano */
+    padding: 15px 30px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 5px; /* Cantos levemente arredondados */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px); /* Leve efeito de "levantar" ao passar o mouse */
+    box-shadow: 0 10px 20px rgba(0, 255, 255, 0.2); /* Sombra neon */
+}
+
+/* Estilos da Seção de Jogos */
+.games-section {
+    padding: 80px 0; /* Espaçamento vertical da seção */
+}
+
+.games-section h2 {
+    text-align: center;
+    margin-bottom: 50px; /* Espaço abaixo do título da seção */
+    font-size: 2.5rem;
+}
+
+.games-grid {
+    display: grid;
+    /* Mágica da responsividade: */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.game-card {
+    background-color: #0E2442; /* Um tom de azul um pouco mais claro que o fundo */
+    border-radius: 10px;
+    overflow: hidden; /* Garante que a imagem não "vaze" dos cantos arredondados */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.game-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 255, 255, 0.25); /* Efeito de brilho neon */
+}
+
+.game-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.game-card-content {
+    padding: 25px;
+}
+
+.game-card-content h3 {
+    margin-bottom: 10px;
+}
+
+/* Estilos da Seção Lab */
+.lab-section {
+    padding: 80px 0;
+    background-color: #081425; /* Um tom de fundo ligeiramente diferente */
+}
+
+.lab-section h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 2.5rem;
+}
+
+.lab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.lab-card {
+    background-color: #0E2442;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border-left: 3px solid var(--accent-color); /* Detalhe na borda para diferenciar */
+}
+
+.lab-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    opacity: 0.7; /* Deixa a imagem um pouco mais esmaecida */
+}
+
+.lab-card-content {
+    padding: 25px;
+    font-family: 'Source Code Pro', monospace; /* A fonte de "código"! */
+}
+
+.project-tag {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-family: 'Orbitron', sans-serif; /* Usando a fonte de título para destaque */
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+/* Estilos da Seção Sobre Nós */
+.about-section {
+    padding: 80px 0;
+    background-color: #081425; /* Mesmo fundo da seção Lab para agrupar visualmente */
+}
+
+.about-section h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 2.5rem;
+}
+
+.about-content {
+    display: flex;
+    align-items: center; /* Alinha a imagem e o texto verticalmente */
+    gap: 50px; /* Espaço entre a imagem e o texto */
+}
+
+.about-image,
+.about-text {
+    flex: 1; /* Faz com que ambas as colunas ocupem 50% do espaço */
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 400px; /* Limita o tamanho máximo da imagem */
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.2); /* Brilho neon sutil */
+}
+
+.about-text p {
+    font-size: 1.1rem; /* Aumenta um pouco o texto para melhor leitura */
+    color: var(--support-color); /* Usa o tom de cinza mais claro */
+    line-height: 1.8;
+}
+
+/* Deixando a seção responsiva para celulares */
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column; /* As colunas ficam uma sobre a outra */
+        text-align: center;
+    }
+}
+
+/* Estilos da Seção de Contato */
+.contact-section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.contact-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+/* O botão .cta-button já foi estilizado na Seção Hero, então ele funcionará aqui automaticamente! */
+
+
+/* Estilos do Rodapé */
+.site-footer {
+    padding: 30px 0;
+    background-color: #060d17; /* Um tom de azul ainda mais escuro para finalizar */
+    border-top: 1px solid #2a3b52;
+    text-align: center;
+}
+
+.site-footer p {
+    color: var(--support-color);
+    font-size: 0.9rem;
+}
