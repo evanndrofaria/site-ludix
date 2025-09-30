@@ -1,19 +1,26 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ludix Studio: Da paixão aos pixels.</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <header class="site-header">
         <div class="container">
             <a href="index.html" class="logo">
-                
-<img src="logo-ludix.png" alt="Logo Ludix Studio">
+                <img src="logo-ludix.png" alt="Logo Ludix Studio">
             </a>
-
             <nav class="main-nav">
                 <ul>
                     <li><a href="#inicio">INÍCIO</a></li>
@@ -23,59 +30,59 @@
                     <li><a href="#contato">CONTATO</a></li>
                 </ul>
             </nav>
+            <button class="menu-toggle" aria-label="Abrir menu">
+                <span class="hamburger"></span>
+            </button>
         </div>
     </header>
-<section id="inicio" class="hero">
-    <video playsinline autoplay muted loop id="hero-video">
-        <source src="video ludix.mp4" type="video/mp4">
-        Seu navegador não suporta vídeos em HTML5.
-    </video>
 
-    <div class="hero-content">
-        <h1>Ludix Studio: Da paixão aos pixels.</h1>
-        <a href="#jogos" class="cta-button">CONHEÇA NOSSOS JOGOS</a>
-    </div>
-</section>
+    <section id="inicio" class="hero">
+        <div class="hero-video-container">
+            <video playsinline autoplay muted loop id="hero-video">
+                <source src="video ludix.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="hero-content">
+            <h1>Ludix Studio: Da paixão aos pixels.</h1>
+            <p>Criamos mundos e experiências inesquecíveis para jogadores apaixonados.</p>
+            <a href="#jogos" class="cta-button">CONHEÇA NOSSOS JOGOS</a>
+        </div>
+    </section>
+
     <section id="jogos" class="games-section">
         <div class="container">
-            <h2>Nossos Jogos</h2>
+            <h2 data-aos="fade-up">Nossos Jogos</h2>
             <div class="games-grid">
-                
-                <article class="game-card">
+                <article class="game-card" data-aos="fade-up" data-aos-delay="100">
                     <img src="cover-breakpoint.jpg" alt="Capa do jogo Breakpoint">
                     <div class="game-card-content">
                         <h3>Breakpoint</h3>
                         <p>Junte sua equipe, preparem as armas e equipamentos, temos uma missão para você!</p>
                     </div>
                 </article>
-
-                <article class="game-card">
+                <article class="game-card" data-aos="fade-up" data-aos-delay="200">
                     <img src="cover-mainframe.jpg" alt="Capa do jogo Mainframe: Northbay Defiance">
                     <div class="game-card-content">
                         <h3>Mainframe: Northbay Defiance</h3>
                         <p>Pronto para invadir sistemas, lutar contra um rígido regimento que dominou a sua cidade e ajuda-la a se libertar?</p>
                     </div>
                 </article>
-
-                <article class="game-card">
-                            <img src="the-fall-valenti-cover.jpg" alt="Capa do jogo The Fall: Valenti">
-                            <div class="game-card-content">
-                                <h3>The Fall: Valenti</h3>
-                                <p>Um detetive infiltrado na máfia precisa derrubar um império por dentro, explorando as fraquezas de seu líder.</p>
-                            </div>
-                        </article>
-
+                <article class="game-card" data-aos="fade-up" data-aos-delay="300">
+                    <img src="the-fall-valenti-cover.jpg" alt="Capa do jogo The Fall: Valenti">
+                    <div class="game-card-content">
+                        <h3>The Fall: Valenti</h3>
+                        <p>Um detetive infiltrado na máfia precisa derrubar um império por dentro, explorando as fraquezas de seu líder.</p>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
+
     <section id="lab" class="lab-section">
         <div class="container">
-            <h2>Lab: Projetos em Construção</h2>
+            <h2 data-aos="fade-up">Lab: Projetos em Construção</h2>
             <div class="lab-grid">
-
-                
-
-                <article class="lab-card">
+                <article class="lab-card" data-aos="fade-up" data-aos-delay="100">
                     <img src="lab-tesouro.jpg" alt="Imagem do projeto Tesouro Esquecido">
                     <div class="lab-card-content">
                         <h3>Tesouro Esquecido</h3>
@@ -83,30 +90,26 @@
                         <p>Uma aventura pirata de mundo aberto criada para aprimorar habilidades de desenvolvimento na Unreal Engine.</p>
                     </div>
                 </article>
-
-                
-
-
             </div>
         </div>
     </section>
+
     <section id="sobre" class="about-section">
         <div class="container">
-            <h2>Nossa História</h2>
+            <h2 data-aos="fade-up">Nossa História</h2>
             <div class="about-content">
-                <div class="about-image">
-                    
-
+                <div class="about-image" data-aos="fade-right">
                     <img src="about-image.png" alt="Logo da Ludix Studio em um fundo tecnológico">
                 </div>
-                <div class="about-text">
+                <div class="about-text" data-aos="fade-left">
                     <p>A Ludix Studio nasceu de uma paixão que atravessa gerações. Aquele sentimento de jogar com a família e amigos, descobrindo novos mundos, é o nosso ponto de partida. Hoje, transformamos essa paixão em profissão com uma missão muito clara: criar jogos digitais que levem diversão de qualidade para todos, sem exceção. Nós desenvolvemos os jogos que sempre sonhamos em jogar.</p>
                 </div>
             </div>
         </div>
     </section>
+
     <section id="contato" class="contact-section">
-        <div class="container">
+        <div class="container" data-aos="fade-up">
             <h2>Vamos criar o próximo nível juntos?</h2>
             <a href="mailto:seuemail@exemplo.com" class="cta-button">ENTRE EM CONTATO</a>
         </div>
@@ -114,12 +117,13 @@
 
     <footer class="site-footer">
         <div class="container">
-            
-
             <p>&copy; 2025 Ludix Studio. Todos os direitos reservados.</p>
         </div>
     </footer>
 
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
     <script src="script.js"></script>
 </body>
+
 </html>

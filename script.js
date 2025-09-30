@@ -1,25 +1,48 @@
-document.addEventListener("DOMContentLoaded", () => {
-    
-    // Configura o "vigia"
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            // Se o elemento entrou na tela...
-            if (entry.isIntersecting) {
-                // ...ele deixa de estar "escondido" e a animação do CSS acontece!
-                entry.target.style.opacity = 1;
-                entry.target.style.transform = 'translateY(0)';
-                // Para de observar este elemento para não animar de novo
-                observer.unobserve(entry.target);
-            }
+/*
+============================================================
+    ARQUIVO script.js FINAL, LIMPO E UNIFICADO
+============================================================
+*/
+
+// Ouve o evento que indica que todo o HTML foi carregado antes de executar qualquer script
+document.addEventListener('DOMContentLoaded', () => {
+
+    // --- 1. CÓDIGO PARA O MENU HAMBÚRGUER ---
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mainNav = document.querySelector('.main-nav');
+
+    if (menuToggle && mainNav) {
+        menuToggle.addEventListener('click', () => {
+            mainNav.classList.toggle('is-active');
+            menuToggle.classList.toggle('is-active');
         });
-    }, {
-        threshold: 0.15 // A animação começa quando 15% do elemento estiver visível
+
+        // Fecha o menu mobile ao clicar em um link
+        mainNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('is-active');
+                menuToggle.classList.remove('is-active');
+            });
+        });
+    }
+
+    // --- 2. CÓDIGO PARA ATIVAR AS ANIMAÇÕES DE ROLAGEM (AOS) ---
+    AOS.init({
+        duration: 800, // Duração da animação em milissegundos
+        once: true,    // Animação acontece apenas uma vez
     });
 
-    // Diz ao "vigia" quais elementos ele deve observar
-    const elementsToReveal = document.querySelectorAll('.reveal-on-scroll');
-    elementsToReveal.forEach((element) => {
-        observer.observe(element);
-    });
+    // --- 3. CÓDIGO PARA O HEADER INTERATIVO ---
+    const header = document.querySelector('.site-header');
+    if (header) {
+        window.addEventListener('scroll', () => {
+            // Se o usuário rolar mais de 50 pixels para baixo...
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled'); // ...adiciona a classe .scrolled
+            } else {
+                header.classList.remove('scrolled'); // ...senão, remove a classe
+            }
+        });
+    }
 
 });

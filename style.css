@@ -1,46 +1,49 @@
-/* SUBSTITUA A LINHA @import ANTIGA POR ESTA */
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto:wght@400;700&family=Source+Code+Pro:wght@700&display=swap');
+/*
+=================================================================
+    ARQUIVO DE ESTILO FINAL E DEFINITIVO - LUDIX STUDIO
+=================================================================
+*/
 
-/* Passo 2: Definir nossas Variáveis de Cor (Paleta) */
-:root {
-    --bg-color: #0A192F; /* Azul-marinho profundo */
-    --accent-color: #00FFFF; /* Ciano Elétrico */
-    --text-color: #E6F1FF; /* Branco com tom de azul */
-    --support-color: #8892B0; /* Cinza médio */
-}
-
-/* Passo 3: Reset Básico e Estilos Globais */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+/* --- 1. ESTILOS GERAIS E BASE --- */
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    font-family: 'Roboto', sans-serif; /* Fonte padrão para textos */
+    font-family: 'Montserrat', sans-serif;
+    color: #ffffff;
+    margin: 0;
     line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
+
+    /* FUNDO DE TESTE COM PONTOS BRANCOS VISÍVEIS */
+    background-color: #121212;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAAXNSR0IArs4c6QAAACRJREFUGJWVjkEKADAIArv+/8/Zo3aJkK7Ccr2l4gEwA10D8CES3gJ29gKeceKORAAAAABJRU5ErkJggg==');
 }
 
-h1, h2, h3 {
-    font-family: 'Orbitron', sans-serif; /* Fonte especial para títulos */
-    color: var(--accent-color);
-}
-
-/* Estilos do Container Principal */
 .container {
     width: 90%;
-    max-width: 1200px;
-    margin: 0 auto; /* Truque para centralizar o container */
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+/* Espaçamento e fundo transparente para todas as seções, EXCETO a .hero */
+section:not(.hero) {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    background: transparent;
 }
 
 
-/* Estilos do Cabeçalho */
+/* --- 2. CABEÇALHO E NAVEGAÇÃO --- */
 .site-header {
     padding: 20px 0;
-    border-bottom: 1px solid #2a3b52; /* Linha sutil para separar */
+    border-bottom: 1px solid #333;
 }
 
 .site-header .container {
@@ -50,276 +53,152 @@ h1, h2, h3 {
 }
 
 .logo img {
-    height: 100px; /* Define uma altura fixa para o logo */
-    width: auto;
+    max-height: 50px;
 }
 
-.main-nav ul {
-    list-style: none; /* Remove os pontinhos da lista */
-    display: flex;
-    gap: 30px; /* Espaçamento entre os itens do menu */
+/* (O restante dos estilos do header e navegação responsiva continua igual) */
+.main-nav ul { list-style: none; margin: 0; padding: 0; display: flex; }
+.main-nav li { margin-left: 25px; }
+.main-nav a { color: #fff; text-decoration: none; font-weight: bold; font-size: 0.9rem; }
+.menu-toggle { display: none; }
+@media (max-width: 768px) {
+    .main-nav { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(18, 18, 18, 0.98); flex-direction: column; justify-content: center; align-items: center; z-index: 100; }
+    .main-nav.is-active { display: flex; }
+    .main-nav ul { flex-direction: column; text-align: center; }
+    .main-nav li { margin: 20px 0; }
+    .main-nav a { font-size: 1.5rem; }
+    .menu-toggle { display: block; background: transparent; border: none; cursor: pointer; z-index: 101; padding: 10px; }
+    .hamburger { display: block; width: 25px; height: 3px; background-color: #fff; position: relative; transition: background-color 0.3s ease; }
+    .hamburger::before, .hamburger::after { content: ''; position: absolute; width: 100%; height: 3px; background-color: #fff; transition: transform 0.3s ease; }
+    .hamburger::before { top: -8px; }
+    .hamburger::after { bottom: -8px; }
+    .menu-toggle.is-active .hamburger { background-color: transparent; }
+    .menu-toggle.is-active .hamburger::before { transform: rotate(45deg) translate(5px, 6px); }
+    .menu-toggle.is-active .hamburger::after { transform: rotate(-45deg) translate(5px, -6px); }
 }
 
-.main-nav a {
-    color: var(--text-color);
-    text-decoration: none; /* Remove o sublinhado dos links */
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 14px;
-    transition: color 0.3s ease; /* Efeito suave na mudança de cor */
-}
 
-.main-nav a:hover {
-    color: var(--accent-color); /* Muda para a cor de destaque ao passar o mouse */
-}
-
-/* Estilos Gerais */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    background-color: #121212;
-    color: #fff;
-}
-
-/* Header */
-/* ... estilos do seu header ... */
-
-
-/* --- DEPOIS DA MUDANÇA --- */
-/* Cole o novo código completo aqui */
+/* --- 3. SEÇÃO HERO (INÍCIO) --- */
 .hero {
-    position: relative; /* Essencial para posicionar o vídeo e o conteúdo dentro dele */
-    height: 100vh; /* Faz a seção ocupar a altura inteira da tela */
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    overflow: hidden; /* Garante que o vídeo não "vaze" para fora da seção */
-}
-
-/* Estilos para o vídeo de fundo */
-#hero-video {
-    position: absolute; /* Posição absoluta em relação ao .hero */
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Centraliza o vídeo perfeitamente */
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -1; /* Joga o vídeo para trás do conteúdo */
-    object-fit: cover; /* Faz o vídeo cobrir todo o espaço sem distorcer */
-}
-
-/* Garante que o conteúdo fique na frente e centralizado */
-.hero-content {
-    position: relative; /* Garante que o z-index funcione */
-    z-index: 1;
+    align-items: center;
     text-align: center;
-    color: #fff; /* Recomendo usar texto branco para contrastar com o fundo escuro */
+    box-sizing: border-box;
+    padding-top: 120px;
+    padding-bottom: 80px;
+    min-height: 100vh;
+    background: transparent; /* Garante que o fundo seja transparente */
 }
 
-/* (OPCIONAL) Adiciona uma camada escura sobre o vídeo para melhorar a leitura do texto */
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
+.hero-video-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    margin-bottom: 2.5rem;
+    background-color: #000;
+}
+
+#hero-video {
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Fundo preto com 50% de opacidade */
-    z-index: 0;
 }
 
-/* Estilos do Botão de Ação (Call to Action) */
+.hero-content {
+    width: 90%;
+    max-width: 800px;
+}
+
+@keyframes fadeInSlideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-content h1, .hero-content p, .hero-content .cta-button {
+    opacity: 0;
+    animation: fadeInSlideUp 0.8s ease forwards;
+}
+
+.hero-content h1 { font-size: 3.5rem; font-weight: 700; margin-bottom: 1.5rem; line-height: 1.2; text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); }
+.hero-content p { font-size: 1.2rem; max-width: 600px; margin: 0 auto 2rem auto; color: #b3b3b3; animation-delay: 0.2s; }
+
+
+/* --- 4. COMPONENTES (BOTÕES, CARDS) --- */
 .cta-button {
     display: inline-block;
-    background-color: var(--accent-color);
-    color: var(--bg-color); /* Texto escuro para contrastar com o fundo ciano */
-    padding: 15px 30px;
+    background-color: #007bff;
+    color: #fff;
+    padding: 15px 35px;
+    border-radius: 50px;
     text-decoration: none;
-    text-transform: uppercase;
     font-weight: bold;
-    border-radius: 5px; /* Cantos levemente arredondados */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(0, 123, 255, 0.4);
+    animation-delay: 0.4s;
 }
 
 .cta-button:hover {
-    transform: translateY(-3px); /* Leve efeito de "levantar" ao passar o mouse */
-    box-shadow: 0 10px 20px rgba(0, 255, 255, 0.2); /* Sombra neon */
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.6);
+    background-color: #0069d9;
 }
 
-/* Estilos da Seção de Jogos */
-.games-section {
-    padding: 80px 0; /* Espaçamento vertical da seção */
-}
-
-.games-section h2 {
-    text-align: center;
-    margin-bottom: 50px; /* Espaço abaixo do título da seção */
-    font-size: 2.5rem;
-}
-
-.games-grid {
-    display: grid;
-    /* Mágica da responsividade: */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.game-card {
-    background-color: #0E2442; /* Um tom de azul um pouco mais claro que o fundo */
-    border-radius: 10px;
-    overflow: hidden; /* Garante que a imagem não "vaze" dos cantos arredondados */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+.game-card, .lab-card {
+    background-color: #1e1e1e; /* Cards mantêm a cor para se destacarem */
+    border-radius: 8px;
+    overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.game-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 255, 255, 0.25); /* Efeito de brilho neon */
+.game-card:hover, .lab-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-.game-card img {
+.game-card img, .lab-card img { width: 100%; height: auto; display: block; }
+.game-card-content, .lab-card-content { padding: 20px; }
+.game-card h3, .lab-card h3 { margin-top: 0; }
+.project-tag { display: inline-block; background-color: #ffc107; color: #000; padding: 5px 10px; border-radius: 5px; font-size: 0.8rem; font-weight: bold; margin-bottom: 10px; }
+
+
+/* --- 5. SEÇÕES ESPECÍFICAS --- */
+.games-grid, .lab-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+.about-content { display: flex; align-items: center; gap: 40px; }
+.about-image { flex-basis: 40%; }
+.about-image img { width: 100%; border-radius: 8px; }
+.about-text { flex-basis: 60%; }
+
+
+/* --- 6. RODAPÉ E CONTATO --- */
+.contact-section { text-align: center; }
+.site-footer { text-align: center; padding: 20px 0; border-top: 1px solid #333; margin-top: 40px; background: transparent; }
+
+/*
+=================================================================
+    PASSO 4: HEADER INTERATIVO
+=================================================================
+*/
+
+.site-header {
+    position: fixed; /* Fixa o header no topo da tela */
+    top: 0;
+    left: 0;
     width: 100%;
-    height: auto;
-    display: block;
+    z-index: 1000; /* Garante que ele fique acima de todo o conteúdo */
+    transition: background-color 0.4s ease, border-bottom 0.4s ease; /* Animação suave */
+
+    /* Estado inicial (antes de rolar) */
+    background-color: transparent;
+    border-bottom: 1px solid transparent; /* Borda começa transparente */
 }
 
-.game-card-content {
-    padding: 25px;
-}
-
-.game-card-content h3 {
-    margin-bottom: 10px;
-}
-
-/* Estilos da Seção Lab */
-.lab-section {
-    padding: 80px 0;
-    background-color: #081425; /* Um tom de fundo ligeiramente diferente */
-}
-
-.lab-section h2 {
-    text-align: center;
-    margin-bottom: 50px;
-    font-size: 2.5rem;
-}
-
-.lab-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.lab-card {
-    background-color: #0E2442;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    border-left: 3px solid var(--accent-color); /* Detalhe na borda para diferenciar */
-}
-
-.lab-card img {
-    width: 100%;
-    height: auto;
-    display: block;
-    opacity: 0.7; /* Deixa a imagem um pouco mais esmaecida */
-}
-
-.lab-card-content {
-    padding: 25px;
-    font-family: 'Source Code Pro', monospace; /* A fonte de "código"! */
-}
-
-.project-tag {
-    display: inline-block;
-    background-color: var(--accent-color);
-    color: var(--bg-color);
-    padding: 5px 10px;
-    border-radius: 4px;
-    font-family: 'Orbitron', sans-serif; /* Usando a fonte de título para destaque */
-    font-size: 12px;
-    font-weight: bold;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-}
-
-/* Estilos da Seção Sobre Nós */
-.about-section {
-    padding: 80px 0;
-    background-color: #081425; /* Mesmo fundo da seção Lab para agrupar visualmente */
-}
-
-.about-section h2 {
-    text-align: center;
-    margin-bottom: 50px;
-    font-size: 2.5rem;
-}
-
-.about-content {
-    display: flex;
-    align-items: center; /* Alinha a imagem e o texto verticalmente */
-    gap: 50px; /* Espaço entre a imagem e o texto */
-}
-
-.about-image,
-.about-text {
-    flex: 1; /* Faz com que ambas as colunas ocupem 50% do espaço */
-}
-
-.about-image img {
-    width: 100%;
-    max-width: 400px; /* Limita o tamanho máximo da imagem */
-    display: block;
-    margin: 0 auto;
-    border-radius: 10px;
-    box-shadow: 0 0 25px rgba(0, 255, 255, 0.2); /* Brilho neon sutil */
-}
-
-.about-text p {
-    font-size: 1.1rem; /* Aumenta um pouco o texto para melhor leitura */
-    color: var(--support-color); /* Usa o tom de cinza mais claro */
-    line-height: 1.8;
-}
-
-/* Deixando a seção responsiva para celulares */
-@media (max-width: 768px) {
-    .about-content {
-        flex-direction: column; /* As colunas ficam uma sobre a outra */
-        text-align: center;
-    }
-}
-
-/* Estilos da Seção de Contato */
-.contact-section {
-    padding: 80px 0;
-    text-align: center;
-}
-
-.contact-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-}
-
-/* O botão .cta-button já foi estilizado na Seção Hero, então ele funcionará aqui automaticamente! */
-
-
-/* Estilos do Rodapé */
-.site-footer {
-    padding: 30px 0;
-    background-color: #060d17; /* Um tom de azul ainda mais escuro para finalizar */
-    border-top: 1px solid #2a3b52;
-    text-align: center;
-}
-
-.site-footer p {
-    color: var(--support-color);
-    font-size: 0.9rem;
-}
-
-/* Estilos para a Animação de Scroll */
-.reveal-on-scroll {
-    opacity: 0; /* Começa totalmente transparente */
-    transform: translateY(50px); /* Começa 50px para baixo */
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+/* Estado final (depois de rolar) */
+.site-header.scrolled {
+    background-color: #121212;
+    border-bottom: 1px solid #333;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Sombra para dar profundidade */
 }
