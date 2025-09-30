@@ -50,7 +50,7 @@ h1, h2, h3 {
 }
 
 .logo img {
-    height: 150px; /* Define uma altura fixa para o logo */
+    height: 100px; /* Define uma altura fixa para o logo */
     width: auto;
 }
 
@@ -73,24 +73,61 @@ h1, h2, h3 {
     color: var(--accent-color); /* Muda para a cor de destaque ao passar o mouse */
 }
 
-/* Estilos da Seção Hero */
+/* Estilos Gerais */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: #121212;
+    color: #fff;
+}
+
+/* Header */
+/* ... estilos do seu header ... */
+
+
+/* --- DEPOIS DA MUDANÇA --- */
+/* Cole o novo código completo aqui */
 .hero {
-    min-height: 85vh; /* A seção terá no mínimo 85% da altura da tela */
+    position: relative; /* Essencial para posicionar o vídeo e o conteúdo dentro dele */
+    height: 100vh; /* Faz a seção ocupar a altura inteira da tela */
     display: flex;
-    justify-content: center;
     align-items: center;
-    text-align: center;
-    padding: 0 20px;
+    justify-content: center;
+    overflow: hidden; /* Garante que o vídeo não "vaze" para fora da seção */
 }
 
+/* Estilos para o vídeo de fundo */
+#hero-video {
+    position: absolute; /* Posição absoluta em relação ao .hero */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centraliza o vídeo perfeitamente */
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1; /* Joga o vídeo para trás do conteúdo */
+    object-fit: cover; /* Faz o vídeo cobrir todo o espaço sem distorcer */
+}
+
+/* Garante que o conteúdo fique na frente e centralizado */
 .hero-content {
-    max-width: 800px;
+    position: relative; /* Garante que o z-index funcione */
+    z-index: 1;
+    text-align: center;
+    color: #fff; /* Recomendo usar texto branco para contrastar com o fundo escuro */
 }
 
-.hero h1 {
-    font-size: 4rem; /* Unidade de medida relativa, ótima para responsividade */
-    margin-bottom: 20px;
-    line-height: 1.2;
+/* (OPCIONAL) Adiciona uma camada escura sobre o vídeo para melhorar a leitura do texto */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo preto com 50% de opacidade */
+    z-index: 0;
 }
 
 /* Estilos do Botão de Ação (Call to Action) */
@@ -278,4 +315,11 @@ h1, h2, h3 {
 .site-footer p {
     color: var(--support-color);
     font-size: 0.9rem;
+}
+
+/* Estilos para a Animação de Scroll */
+.reveal-on-scroll {
+    opacity: 0; /* Começa totalmente transparente */
+    transform: translateY(50px); /* Começa 50px para baixo */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
