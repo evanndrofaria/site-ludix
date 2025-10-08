@@ -202,3 +202,22 @@ section:not(.hero) {
     border-bottom: 1px solid #333;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Sombra para dar profundidade */
 }
+
+/*
+============================================================
+    CORREÇÃO: AJUSTE DE TAMANHO DO CARD DA SEÇÃO LAB
+============================================================
+*/
+
+.lab-grid {
+    /* Redefine as colunas para terem um tamanho máximo, impedindo que um 
+       único card se estique para preencher a tela inteira.
+    */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 380px));
+
+    /*
+       Centraliza o conjunto de cards na seção. Isso faz com que, se houver
+       apenas um card, ele fique perfeitamente no meio.
+    */
+    justify-content: center;
+}
